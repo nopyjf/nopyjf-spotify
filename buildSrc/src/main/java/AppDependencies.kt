@@ -26,9 +26,12 @@ object AppDependencies {
 
     val coreDependencies = listOf(
         CORE_KTX,
+        HILT
+    )
+
+    val appDependencies = listOf(
         APP_COMPAT,
         MATERIAL,
-        HILT
     )
 
     val testDependencies = listOf(
@@ -42,6 +45,11 @@ object AppDependencies {
 
     val kaptDependencies = listOf(
         HILT_COMPILER
+    )
+
+    val featureDependencies = listOf(
+        APP_COMPAT,
+        MATERIAL,
     )
 }
 

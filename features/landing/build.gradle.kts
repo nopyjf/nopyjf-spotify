@@ -1,23 +1,20 @@
 plugins {
-    id(AppDependencies.ANDROID_APPLICATION)
+    id(AppDependencies.ANDROID_LIBRARY)
     id(AppDependencies.JETBRAINS_KOTLIN_ANDROID)
     id(AppDependencies.ANDROID_HILT)
     kotlin(AppDependencies.KAPT)
 }
 
 android {
-    namespace = AppConfig.APPLICATION_ID
+    namespace = AppConfig.FEATURE_LANDING_ID
     compileSdk = Versions.COMPILE_SDK
 
     defaultConfig {
-        applicationId = AppConfig.APPLICATION_ID
         minSdk = Versions.MIN_SDK
         targetSdk = Versions.TARGET_SDK
 
-        versionCode = Versions.CODE_VERSION
-        versionName = Versions.VERSION_NAME
-
         testInstrumentationRunner = AppConfig.INSTRUMENTATION_RUNNER
+        consumerProguardFiles(AppConfig.PROGUARD_CONSUMER_RULES)
     }
 
     buildTypes {
@@ -42,7 +39,7 @@ android {
 
 dependencies {
     implementation(AppDependencies.coreDependencies)
-    implementation(AppDependencies.appDependencies)
+    implementation(AppDependencies.featureDependencies)
     testImplementation(AppDependencies.testDependencies)
     androidTestImplementation(AppDependencies.androidTestDependencies)
     kapt(AppDependencies.kaptDependencies)

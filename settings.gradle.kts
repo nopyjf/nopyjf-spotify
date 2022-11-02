@@ -15,4 +15,7 @@ dependencyResolutionManagement {
 }
 
 rootProject.name = "NopyJF Spotify"
-include(":app")
+include(
+    ":app",
+    ":features:landing",
+)
