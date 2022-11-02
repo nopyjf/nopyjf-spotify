@@ -2,6 +2,7 @@ object Versions {
     // Project Level
     const val ANDROID_VERSION = "7.3.0"
     const val JETBRAINS_VERSION = "1.7.10"
+    const val HILT = "2.44"
 
     // App Level
     const val COMPILE_SDK = 33

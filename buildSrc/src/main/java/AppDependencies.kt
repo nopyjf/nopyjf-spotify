@@ -7,11 +7,15 @@ object AppDependencies {
     const val ANDROID_LIBRARY = "com.android.library"
     const val JETBRAINS_KOTLIN_ANDROID = "org.jetbrains.kotlin.android"
     const val JETBRAINS_KOTLIN_JVM = "org.jetbrains.kotlin.jvm"
+    const val ANDROID_HILT = "com.google.dagger.hilt.android"
+    const val KAPT = "kapt"
 
     // Core
     private const val CORE_KTX = "androidx.core:core-ktx:${Versions.CORE_KTX}"
     private const val APP_COMPAT = "androidx.appcompat:appcompat:${Versions.APP_COMPAT}"
     private const val MATERIAL = "com.google.android.material:material:${Versions.MATERIAL}"
+    private const val HILT = "com.google.dagger:hilt-android:${Versions.HILT}"
+    private const val HILT_COMPILER = "com.google.dagger:hilt-android-compiler:${Versions.HILT}"
 
     // Unit Test
     private const val J_UNIT = "junit:junit:4.13.2:${Versions.J_UNIT}"
@@ -23,7 +27,8 @@ object AppDependencies {
     val coreDependencies = listOf(
         CORE_KTX,
         APP_COMPAT,
-        MATERIAL
+        MATERIAL,
+        HILT
     )
 
     val testDependencies = listOf(
@@ -33,6 +38,10 @@ object AppDependencies {
     val androidTestDependencies = listOf(
         J_UNIT_EXT,
         ESPRESSO
+    )
+
+    val kaptDependencies = listOf(
+        HILT_COMPILER
     )
 }
 

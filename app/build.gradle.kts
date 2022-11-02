@@ -1,6 +1,8 @@
 plugins {
     id(AppDependencies.ANDROID_APPLICATION)
     id(AppDependencies.JETBRAINS_KOTLIN_ANDROID)
+    id(AppDependencies.ANDROID_HILT)
+    kotlin(AppDependencies.KAPT)
 }
 
 android {
@@ -42,4 +44,5 @@ dependencies {
     implementation(AppDependencies.coreDependencies)
     testImplementation(AppDependencies.testDependencies)
     androidTestImplementation(AppDependencies.androidTestDependencies)
+    kapt(AppDependencies.kaptDependencies)
 }
