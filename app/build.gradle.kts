@@ -38,11 +38,17 @@ android {
     kotlinOptions {
         jvmTarget = Versions.JVM_TARGET
     }
+
+    buildFeatures {
+        viewBinding = true
+        dataBinding = true
+    }
 }
 
 dependencies {
     implementation(AppDependencies.coreDependencies)
     implementation(AppDependencies.appDependencies)
+    implementationProject(AppDependencies.appProjectDependencies)
     testImplementation(AppDependencies.testDependencies)
     androidTestImplementation(AppDependencies.androidTestDependencies)
     kapt(AppDependencies.kaptDependencies)

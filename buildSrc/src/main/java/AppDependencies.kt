@@ -1,4 +1,5 @@
 import org.gradle.api.artifacts.dsl.DependencyHandler
+import org.gradle.kotlin.dsl.project
 
 object AppDependencies {
 
@@ -23,6 +24,9 @@ object AppDependencies {
     // Instrument Test
     private const val J_UNIT_EXT = "androidx.test.ext:junit:${Versions.J_UNIT_EXT}"
     private const val ESPRESSO = "androidx.test.espresso:espresso-core:${Versions.ESPRESSO}"
+
+    // Features
+    const val FEATURE_LANDING = ":features:landing"
 
     val coreDependencies = listOf(
         CORE_KTX,
@@ -51,6 +55,10 @@ object AppDependencies {
         APP_COMPAT,
         MATERIAL,
     )
+
+    val appProjectDependencies = listOf(
+        FEATURE_LANDING
+    )
 }
 
 fun DependencyHandler.kapt(list: List<String>) {
@@ -74,5 +82,11 @@ fun DependencyHandler.androidTestImplementation(list: List<String>) {
 fun DependencyHandler.testImplementation(list: List<String>) {
     list.forEach { dependency ->
         add("testImplementation", dependency)
+    }
+}
+
+fun DependencyHandler.implementationProject(list: List<String>) {
+    list.forEach { dependency ->
+        add("implementation", project(dependency))
     }
 }
