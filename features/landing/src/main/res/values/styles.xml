@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--  Landing Style  -->
+    <style name="LandingStyle" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="android:windowBackground">@color/main_background</item>
+        <item name="android:textColor">@color/main_white_text</item>
+    </style>
+
+    <!--  Landing App Bar Style  -->
+    <style name="LandingAppBar">
+        <item name="android:background">@color/main_background</item>
+    </style>
+
+    <!--  Landing App Bar Chip Style  -->
+    <style name="LandingAppBarChip" parent="Widget.MaterialComponents.Chip.Action">
+        <item name="chipBackgroundColor">@color/main_background_light</item>
+        <item name="android:textColor">@color/main_white_text</item>
+    </style>
+</resources>
