@@ -1,21 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <!--  Landing Style  -->
     <style name="LandingTheme" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <item name="android:windowBackground">@color/main_background</item>
         <item name="android:textColor">@color/main_white_text</item>
         <item name="android:statusBarColor">@color/main_black</item>
     </style>
 
-    <!--  Landing App Bar Style  -->
     <style name="LandingAppBar">
         <item name="android:background">@color/main_background</item>
     </style>
 
-    <!--  Landing App Bar Chip Style  -->
     <style name="LandingAppBarChip" parent="Widget.MaterialComponents.Chip.Action">
         <item name="chipBackgroundColor">@color/main_background_light</item>
+        <item name="android:textColor">@color/main_white_text</item>
+    </style>
+
+    <style name="LandingRecommendItem">
+        <item name="cardBackgroundColor">@color/main_background_light</item>
         <item name="android:textColor">@color/main_white_text</item>
     </style>
 </resources>

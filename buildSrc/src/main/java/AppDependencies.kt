@@ -17,6 +17,8 @@ object AppDependencies {
     private const val MATERIAL = "com.google.android.material:material:${Versions.MATERIAL}"
     private const val HILT = "com.google.dagger:hilt-android:${Versions.HILT}"
     private const val HILT_COMPILER = "com.google.dagger:hilt-android-compiler:${Versions.HILT}"
+    private const val GLIDE = "com.github.bumptech.glide:glide:${Versions.GLIDE}"
+    private const val GLIDE_COMPILER = "com.github.bumptech.glide:compiler:${Versions.GLIDE}"
 
     // Unit Test
     private const val J_UNIT = "junit:junit:4.13.2:${Versions.J_UNIT}"
@@ -32,12 +34,16 @@ object AppDependencies {
 
     val coreDependencies = listOf(
         CORE_KTX,
-        HILT
+        HILT,
+        APP_COMPAT,
+        MATERIAL,
+        GLIDE,
     )
 
     val appDependencies = listOf(
         APP_COMPAT,
         MATERIAL,
+        GLIDE,
     )
 
     val testDependencies = listOf(
@@ -50,13 +56,17 @@ object AppDependencies {
     )
 
     val kaptDependencies = listOf(
-        HILT_COMPILER
+        HILT_COMPILER,
+        GLIDE_COMPILER
     )
 
     val featureDependencies = listOf(
         APP_COMPAT,
         MATERIAL,
+        GLIDE,
     )
+
+    val serviceDependencies = listOf<String>()
 
     val appProjectDependencies = listOf(
         FEATURE_LANDING,
