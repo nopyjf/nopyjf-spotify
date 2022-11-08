@@ -6,6 +6,8 @@ object AppConfig {
 
     const val APPLICATION_ID = "com.example.nopyjfspotify"
     const val FEATURE_LANDING_ID = "com.example.landing"
+    const val BASELINE_ID = "com.example.baseline"
+    const val CORE_ID = "com.example.core"
 
     const val DEBUG = "debug"
     const val RELEASE = "release"

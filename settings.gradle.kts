@@ -17,5 +17,7 @@ dependencyResolutionManagement {
 rootProject.name = "NopyJF Spotify"
 include(
     ":app",
+    ":core",
+    ":baseline",
     ":features:landing",
 )

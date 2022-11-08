@@ -2,9 +2,10 @@
 <resources>
 
     <!--  Landing Style  -->
-    <style name="LandingStyle" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+    <style name="LandingTheme" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <item name="android:windowBackground">@color/main_background</item>
         <item name="android:textColor">@color/main_white_text</item>
+        <item name="android:statusBarColor">@color/main_black</item>
     </style>
 
     <!--  Landing App Bar Style  -->

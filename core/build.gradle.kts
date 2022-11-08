@@ -6,7 +6,7 @@ plugins {
 }
 
 android {
-    namespace = AppConfig.FEATURE_LANDING_ID
+    namespace = AppConfig.CORE_ID
     compileSdk = Versions.COMPILE_SDK
 
     defaultConfig {
@@ -44,9 +44,7 @@ android {
 
 dependencies {
     implementation(AppDependencies.coreDependencies)
-    implementation(AppDependencies.featureDependencies)
-    implementationProject(AppDependencies.featureLandingProjectDependencies)
-    testImplementation(AppDependencies.testDependencies)
-    androidTestImplementation(AppDependencies.androidTestDependencies)
+//    testImplementation(AppDependencies.testDependencies)
+//    androidTestImplementation(AppDependencies.androidTestDependencies)
     kapt(AppDependencies.kaptDependencies)
 }

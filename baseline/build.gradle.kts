@@ -1,12 +1,10 @@
 plugins {
     id(AppDependencies.ANDROID_LIBRARY)
     id(AppDependencies.JETBRAINS_KOTLIN_ANDROID)
-    id(AppDependencies.ANDROID_HILT)
-    kotlin(AppDependencies.KAPT)
 }
 
 android {
-    namespace = AppConfig.FEATURE_LANDING_ID
+    namespace = AppConfig.BASELINE_ID
     compileSdk = Versions.COMPILE_SDK
 
     defaultConfig {
@@ -35,18 +33,4 @@ android {
     kotlinOptions {
         jvmTarget = Versions.JVM_TARGET
     }
-
-    buildFeatures {
-        viewBinding = true
-        dataBinding = true
-    }
-}
-
-dependencies {
-    implementation(AppDependencies.coreDependencies)
-    implementation(AppDependencies.featureDependencies)
-    implementationProject(AppDependencies.featureLandingProjectDependencies)
-    testImplementation(AppDependencies.testDependencies)
-    androidTestImplementation(AppDependencies.androidTestDependencies)
-    kapt(AppDependencies.kaptDependencies)
 }

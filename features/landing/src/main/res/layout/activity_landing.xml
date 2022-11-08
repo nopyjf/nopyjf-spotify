@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:id="@+id/landing_screen"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -15,6 +16,7 @@
             app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
             <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/landing_area"
                 android:layout_width="match_parent"
                 android:layout_height="1000dp" />
 

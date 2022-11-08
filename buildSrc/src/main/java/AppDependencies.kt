@@ -26,7 +26,9 @@ object AppDependencies {
     private const val ESPRESSO = "androidx.test.espresso:espresso-core:${Versions.ESPRESSO}"
 
     // Features
-    const val FEATURE_LANDING = ":features:landing"
+    private const val FEATURE_LANDING = ":features:landing"
+    private const val BASELINE = ":baseline"
+    private const val CORE = ":core"
 
     val coreDependencies = listOf(
         CORE_KTX,
@@ -57,7 +59,14 @@ object AppDependencies {
     )
 
     val appProjectDependencies = listOf(
-        FEATURE_LANDING
+        FEATURE_LANDING,
+        CORE,
+        BASELINE
+    )
+
+    val featureLandingProjectDependencies = listOf(
+        CORE,
+        BASELINE
     )
 }
 

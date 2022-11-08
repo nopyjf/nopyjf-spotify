@@ -3,15 +3,16 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/landing_expanded_app_bar"
+        style="@style/LandingAppBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingStart="8dp"
         android:paddingTop="36dp"
-        android:paddingEnd="8dp"
-        style="@style/LandingAppBar">
+        android:paddingEnd="8dp">
 
         <TextView
-            android:id="@+id/landing_app_bar_title"
+            android:id="@+id/landing_expanded_app_bar_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="สวัสดีตอนบ่าย"
@@ -25,12 +26,14 @@
             app:layout_constraintBottom_toBottomOf="parent">
 
             <com.google.android.material.chip.Chip
+                android:id="@+id/landing_chip_song"
                 style="@style/LandingAppBarChip"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="เพลง" />
 
             <com.google.android.material.chip.Chip
+                android:id="@+id/landing_chip_podcast"
                 style="@style/LandingAppBarChip"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

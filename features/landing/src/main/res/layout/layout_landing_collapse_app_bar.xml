@@ -3,17 +3,20 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/landing_app_bar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:elevation="0dp">
 
         <com.google.android.material.appbar.CollapsingToolbarLayout
+            android:id="@+id/landing_collapse_app_bar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:elevation="0dp"
             app:layout_scrollFlags="scroll|exitUntilCollapsed">
 
             <androidx.appcompat.widget.Toolbar
+                android:id="@+id/landing_toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="48dp" />
 
