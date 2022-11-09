@@ -17,6 +17,9 @@ object Versions {
     const val APP_COMPAT = "1.5.1"
     const val MATERIAL = "1.7.0"
     const val GLIDE = "4.14.2"
+    const val RETROFIT = "2.9.0"
+    const val GSON = "2.10"
+    const val COROUTINE = "1.5.2"
 
     // Unit Test
     const val J_UNIT = "4.13.2"

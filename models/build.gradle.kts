@@ -1,12 +1,10 @@
 plugins {
     id(AppDependencies.ANDROID_LIBRARY)
     id(AppDependencies.JETBRAINS_KOTLIN_ANDROID)
-    id(AppDependencies.ANDROID_HILT)
-    kotlin(AppDependencies.KAPT)
 }
 
 android {
-    namespace = AppConfig.CORE_ID
+    namespace = AppConfig.MODEL_ID
     compileSdk = Versions.COMPILE_SDK
 
     defaultConfig {
@@ -35,15 +33,9 @@ android {
     kotlinOptions {
         jvmTarget = Versions.JVM_TARGET
     }
-
-    buildFeatures {
-        viewBinding = true
-        dataBinding = true
-    }
 }
+
 
 dependencies {
     implementation(AppDependencies.coreDependencies)
-    implementationProject(AppDependencies.coreProjectDependencies)
-    kapt(AppDependencies.kaptDependencies)
 }

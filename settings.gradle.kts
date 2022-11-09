@@ -19,5 +19,9 @@ include(
     ":app",
     ":core",
     ":baseline",
+    ":models",
+    // Features
     ":features:landing",
+    // Services
+    ":services:landing"
 )

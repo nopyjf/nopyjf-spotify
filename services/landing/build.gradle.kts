@@ -6,7 +6,7 @@ plugins {
 }
 
 android {
-    namespace = AppConfig.CORE_ID
+    namespace = AppConfig.SERVICE_LANDING_ID
     compileSdk = Versions.COMPILE_SDK
 
     defaultConfig {
@@ -35,15 +35,12 @@ android {
     kotlinOptions {
         jvmTarget = Versions.JVM_TARGET
     }
-
-    buildFeatures {
-        viewBinding = true
-        dataBinding = true
-    }
 }
 
 dependencies {
     implementation(AppDependencies.coreDependencies)
-    implementationProject(AppDependencies.coreProjectDependencies)
+    implementation(AppDependencies.serviceDependencies)
+    implementationProject(AppDependencies.serviceLandingProjectDependencies)
+    testImplementation(AppDependencies.testDependencies)
     kapt(AppDependencies.kaptDependencies)
 }

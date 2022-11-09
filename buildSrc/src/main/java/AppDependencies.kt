@@ -19,6 +19,12 @@ object AppDependencies {
     private const val HILT_COMPILER = "com.google.dagger:hilt-android-compiler:${Versions.HILT}"
     private const val GLIDE = "com.github.bumptech.glide:glide:${Versions.GLIDE}"
     private const val GLIDE_COMPILER = "com.github.bumptech.glide:compiler:${Versions.GLIDE}"
+    private const val RETROFIT = "com.squareup.retrofit2:retrofit:${Versions.RETROFIT}"
+    private const val RETROFIT_GSON_CONVERTER =
+        "com.squareup.retrofit2:converter-gson:${Versions.RETROFIT}"
+    private const val GSON = "com.google.code.gson:gson:${Versions.GSON}"
+    private const val COROUTINE =
+        "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Versions.COROUTINE}"
 
     // Unit Test
     private const val J_UNIT = "junit:junit:4.13.2:${Versions.J_UNIT}"
@@ -29,8 +35,14 @@ object AppDependencies {
 
     // Features
     private const val FEATURE_LANDING = ":features:landing"
+
+    // Service
+    private const val SERVICE_LANDING = ":services:landing"
+
+    // Core
     private const val BASELINE = ":baseline"
     private const val CORE = ":core"
+    private const val MODEL = ":models"
 
     val coreDependencies = listOf(
         CORE_KTX,
@@ -38,6 +50,10 @@ object AppDependencies {
         APP_COMPAT,
         MATERIAL,
         GLIDE,
+        RETROFIT,
+        RETROFIT_GSON_CONVERTER,
+        GSON,
+        COROUTINE,
     )
 
     val appDependencies = listOf(
@@ -64,19 +80,39 @@ object AppDependencies {
         APP_COMPAT,
         MATERIAL,
         GLIDE,
+        COROUTINE,
     )
 
-    val serviceDependencies = listOf<String>()
+    val serviceDependencies = listOf(
+        RETROFIT,
+        RETROFIT_GSON_CONVERTER,
+        GSON,
+        COROUTINE,
+    )
 
     val appProjectDependencies = listOf(
         FEATURE_LANDING,
         CORE,
+        MODEL,
         BASELINE
     )
 
     val featureLandingProjectDependencies = listOf(
         CORE,
-        BASELINE
+        MODEL,
+        BASELINE,
+        SERVICE_LANDING,
+    )
+
+    val serviceLandingProjectDependencies = listOf(
+        CORE,
+        MODEL,
+        BASELINE,
+    )
+
+    val coreProjectDependencies = listOf(
+        MODEL,
+        BASELINE,
     )
 }
 
