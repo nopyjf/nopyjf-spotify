@@ -9,6 +9,7 @@ object AppDependencies {
     const val JETBRAINS_KOTLIN_ANDROID = "org.jetbrains.kotlin.android"
     const val JETBRAINS_KOTLIN_JVM = "org.jetbrains.kotlin.jvm"
     const val ANDROID_HILT = "com.google.dagger.hilt.android"
+    const val PARCELIZE = "kotlin-parcelize"
     const val KAPT = "kapt"
 
     // Core

@@ -2,6 +2,7 @@ plugins {
     id(AppDependencies.ANDROID_LIBRARY)
     id(AppDependencies.JETBRAINS_KOTLIN_ANDROID)
     id(AppDependencies.ANDROID_HILT)
+    id(AppDependencies.PARCELIZE)
     kotlin(AppDependencies.KAPT)
 }
 

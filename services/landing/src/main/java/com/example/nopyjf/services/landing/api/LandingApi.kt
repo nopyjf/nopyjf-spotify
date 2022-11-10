@@ -7,7 +7,7 @@ import com.example.nopyjf.services.landing.service.LandingService
 class LandingApi(
     private val service: LandingService
 ) {
-    suspend fun getLanding(): ResponseEntity<LandingEntity> {
+    suspend fun getLanding(): ResponseEntity<LandingEntity?> {
         return service.getLanding()
     }
 }

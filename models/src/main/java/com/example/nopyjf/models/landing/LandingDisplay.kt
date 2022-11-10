@@ -5,10 +5,10 @@ data class LandingDisplay(
     private val image: String = "",
 )
 
-fun LandingModel.transformDisplay(): LandingDisplay {
+fun LandingModel?.transformDisplay(): LandingDisplay {
     return LandingDisplay(
-        title.orEmpty(),
-        image.orEmpty(),
+        this?.title.orEmpty(),
+        this?.image.orEmpty(),
     )
 }
 

@@ -6,5 +6,5 @@ import retrofit2.http.GET
 
 interface LandingService {
     @GET("landing")
-    suspend fun getLanding(): ResponseEntity<LandingEntity>
+    suspend fun getLanding(): ResponseEntity<LandingEntity?>
 }
