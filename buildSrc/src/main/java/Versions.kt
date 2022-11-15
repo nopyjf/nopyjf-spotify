@@ -20,6 +20,9 @@ object Versions {
     const val RETROFIT = "2.9.0"
     const val GSON = "2.10"
     const val COROUTINE = "1.5.2"
+    const val LIFECYCLE = "2.2.0"
+    const val FRAGMENT = "1.5.4"
+    const val HTTP_CLIENT = "4.10.0"
 
     // Unit Test
     const val J_UNIT = "4.13.2"

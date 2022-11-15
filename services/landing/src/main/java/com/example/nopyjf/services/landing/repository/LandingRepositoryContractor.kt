@@ -1,8 +1,8 @@
 package com.example.nopyjf.services.landing.repository
 
 
-import com.example.nopyjf.models.response.ResponseModel
+import com.example.nopyjf.models.landing.LandingModel
 
 interface LandingRepositoryContractor {
-    suspend fun getLanding(): ResponseModel
+    suspend fun getLanding(): List<LandingModel>?
 }

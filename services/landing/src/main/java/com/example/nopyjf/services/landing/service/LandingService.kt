@@ -5,6 +5,6 @@ import com.example.nopyjf.models.response.ResponseEntity
 import retrofit2.http.GET
 
 interface LandingService {
-    @GET("landing")
-    suspend fun getLanding(): ResponseEntity<LandingEntity?>
+    @GET("v3/0daf9961-5e1a-4545-8019-1cdeadaf8bcc")
+    suspend fun getLanding(): ResponseEntity<List<LandingEntity>?>
 }

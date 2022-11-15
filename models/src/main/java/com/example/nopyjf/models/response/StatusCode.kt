@@ -4,4 +4,5 @@ object StatusCode {
     const val SUCCESS = "1000"
     const val API_ERROR = "1899"
     const val SERVER_ERROR = "1999"
+    const val MYSTERY_ERROR = "-1"
 }

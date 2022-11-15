@@ -26,6 +26,14 @@ object AppDependencies {
     private const val GSON = "com.google.code.gson:gson:${Versions.GSON}"
     private const val COROUTINE =
         "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Versions.COROUTINE}"
+    private const val LIFECYCLE_VIEW_MODEL =
+        "androidx.lifecycle:lifecycle-viewmodel-ktx:${Versions.LIFECYCLE}"
+    private const val LIFECYCLE_EXTENSION =
+        "androidx.lifecycle:lifecycle-extensions:${Versions.LIFECYCLE}"
+    private const val FRAGMENT = "androidx.fragment:fragment-ktx:${Versions.FRAGMENT}"
+    private const val HTTP_CLIENT = "com.squareup.okhttp3:okhttp:${Versions.HTTP_CLIENT}"
+    private const val HTTP_CLIENT_LOG =
+        "com.squareup.okhttp3:logging-interceptor:${Versions.HTTP_CLIENT}"
 
     // Unit Test
     private const val J_UNIT = "junit:junit:4.13.2:${Versions.J_UNIT}"
@@ -55,26 +63,34 @@ object AppDependencies {
         RETROFIT_GSON_CONVERTER,
         GSON,
         COROUTINE,
+        LIFECYCLE_VIEW_MODEL,
+        LIFECYCLE_EXTENSION,
+        FRAGMENT,
+        HTTP_CLIENT,
+        HTTP_CLIENT_LOG
     )
 
     val appDependencies = listOf(
         APP_COMPAT,
         MATERIAL,
         GLIDE,
+        LIFECYCLE_VIEW_MODEL,
+        LIFECYCLE_EXTENSION,
+        FRAGMENT,
     )
 
     val testDependencies = listOf(
-        J_UNIT
+        J_UNIT,
     )
 
     val androidTestDependencies = listOf(
         J_UNIT_EXT,
-        ESPRESSO
+        ESPRESSO,
     )
 
     val kaptDependencies = listOf(
         HILT_COMPILER,
-        GLIDE_COMPILER
+        GLIDE_COMPILER,
     )
 
     val featureDependencies = listOf(
@@ -82,6 +98,9 @@ object AppDependencies {
         MATERIAL,
         GLIDE,
         COROUTINE,
+        LIFECYCLE_VIEW_MODEL,
+        LIFECYCLE_EXTENSION,
+        FRAGMENT,
     )
 
     val serviceDependencies = listOf(
@@ -89,13 +108,15 @@ object AppDependencies {
         RETROFIT_GSON_CONVERTER,
         GSON,
         COROUTINE,
+        HTTP_CLIENT,
+        HTTP_CLIENT_LOG,
     )
 
     val appProjectDependencies = listOf(
         FEATURE_LANDING,
         CORE,
         MODEL,
-        BASELINE
+        BASELINE,
     )
 
     val featureLandingProjectDependencies = listOf(

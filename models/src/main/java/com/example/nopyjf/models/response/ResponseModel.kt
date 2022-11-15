@@ -1,28 +1,22 @@
 package com.example.nopyjf.models.response
 
-sealed class ResponseModel<T>(
-    val message: String = "",
-    val data: T? = null
-) {
-    class Success<T>(data: T?) : ResponseModel<T>(data = data)
-    class ApiError<T>(message: String) : ResponseModel<T>(message = message)
-    class ServerError<T>(message: String) : ResponseModel<T>(message = message)
-    class MysteryError<T> : ResponseModel<T>()
-}
+import com.example.nopyjf.models.error.ApiErrorException
+import com.example.nopyjf.models.error.MysteryErrorException
+import com.example.nopyjf.models.error.ServerErrorException
 
-fun <T, R> ResponseEntity<T>.getResponseModel(doOnSuccess: () -> ResponseModel<R>): ResponseModel<R> {
+fun <T, R> ResponseEntity<T>.getResponseModel(doOnSuccess: () -> R): R {
     return when (status?.code) {
         StatusCode.SUCCESS -> {
             doOnSuccess()
         }
         StatusCode.API_ERROR -> {
-            ResponseModel.ApiError(status.message.orEmpty())
+            throw ApiErrorException(message = status.message.orEmpty())
         }
         StatusCode.SERVER_ERROR -> {
-            ResponseModel.ServerError(status.message.orEmpty())
+            throw ServerErrorException(message = status.message.orEmpty())
         }
         else -> {
-            ResponseModel.MysteryError()
+            throw MysteryErrorException()
         }
     }
 }

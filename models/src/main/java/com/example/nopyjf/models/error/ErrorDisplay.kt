@@ -1,9 +1,10 @@
 package com.example.nopyjf.models.error
 
 import android.os.Parcelable
+import kotlinx.parcelize.Parcelize
 
-//data class ErrorDisplay(
-//    val title: String = "",
-//    val message: String = "",
-//): Parcelable
+@Parcelize
+data class ErrorDisplay(
+    val message: String = "",
+) : Parcelable
 

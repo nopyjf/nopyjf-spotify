@@ -1,14 +1,22 @@
 package com.example.nopyjf.models.landing
 
-data class LandingDisplay(
-    private val title: String = "",
-    private val image: String = "",
-)
+import android.os.Parcelable
+import kotlinx.parcelize.Parcelize
 
-fun LandingModel?.transformDisplay(): LandingDisplay {
-    return LandingDisplay(
-        this?.title.orEmpty(),
-        this?.image.orEmpty(),
-    )
+@Parcelize
+data class LandingDisplay(
+    val title: String = "",
+    val image: String = "",
+) : Parcelable
+
+fun List<LandingModel>?.transformDisplay(): List<LandingDisplay> {
+    return this?.map {
+        LandingDisplay(
+            it.title.orEmpty(),
+            it.image.orEmpty(),
+        )
+    } ?: listOf()
+
+
 }
 

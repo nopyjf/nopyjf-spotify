@@ -1,18 +1,16 @@
 package com.example.nopyjf.models.landing
 
-import com.example.nopyjf.models.response.ResponseModel
-
 data class LandingModel(
     val title: String? = "",
     val image: String? = "",
 )
 
-fun LandingEntity?.transformModel(): ResponseModel<LandingModel> {
-    return ResponseModel.Success(
+fun List<LandingEntity>?.transformModel(): List<LandingModel>? {
+    return this?.map {
         LandingModel(
-            title = this?.title,
-            image = this?.image
+            title = it.title,
+            image = it.image,
         )
-    )
+    }
 }
 
