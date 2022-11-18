@@ -6,7 +6,7 @@
 
         <variable
             name="data"
-            type="com.example.nopyjf.models.landing.LandingDisplay" />
+            type="com.example.nopyjf.models.landing.LandingItemDisplay" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

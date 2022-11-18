@@ -34,6 +34,8 @@ object AppDependencies {
     private const val HTTP_CLIENT = "com.squareup.okhttp3:okhttp:${Versions.HTTP_CLIENT}"
     private const val HTTP_CLIENT_LOG =
         "com.squareup.okhttp3:logging-interceptor:${Versions.HTTP_CLIENT}"
+    private const val RECYCLER_VIEW =
+        "androidx.recyclerview:recyclerview:${Versions.RECYCLER_VIEW}"
 
     // Unit Test
     private const val J_UNIT = "junit:junit:4.13.2:${Versions.J_UNIT}"
@@ -67,7 +69,8 @@ object AppDependencies {
         LIFECYCLE_EXTENSION,
         FRAGMENT,
         HTTP_CLIENT,
-        HTTP_CLIENT_LOG
+        HTTP_CLIENT_LOG,
+        RECYCLER_VIEW,
     )
 
     val appDependencies = listOf(
@@ -77,6 +80,7 @@ object AppDependencies {
         LIFECYCLE_VIEW_MODEL,
         LIFECYCLE_EXTENSION,
         FRAGMENT,
+        RECYCLER_VIEW,
     )
 
     val testDependencies = listOf(
@@ -101,6 +105,7 @@ object AppDependencies {
         LIFECYCLE_VIEW_MODEL,
         LIFECYCLE_EXTENSION,
         FRAGMENT,
+        RECYCLER_VIEW,
     )
 
     val serviceDependencies = listOf(

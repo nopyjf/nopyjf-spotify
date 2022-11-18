@@ -3,8 +3,8 @@ package com.example.nopyjf.models.error
 import com.example.nopyjf.models.response.StatusCode
 
 open class ErrorException(
-    code: String? = "",
-    message: String = "",
+    override val message: String = "",
+    val code: String = "",
 ) : Exception(message)
 
 class ApiErrorException(

@@ -16,6 +16,12 @@ android {
 
         testInstrumentationRunner = AppConfig.INSTRUMENTATION_RUNNER
         consumerProguardFiles(AppConfig.PROGUARD_CONSUMER_RULES)
+
+        buildConfigField(
+            AppConfig.STRING,
+            AppConfig.BASE_URL_FIELD,
+            "\"${AppConfig.BASE_URL_VALUE}\""
+        )
     }
 
     buildTypes {

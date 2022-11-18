@@ -1,5 +1,6 @@
 package com.example.nopyjf.core.di
 
+import com.example.core.BuildConfig
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -18,7 +19,7 @@ class CoreModule {
         client: OkHttpClient
     ): Retrofit {
         return Retrofit.Builder()
-            .baseUrl("https://run.mocky.io")
+            .baseUrl(BuildConfig.BASE_URL)
             .client(client)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
