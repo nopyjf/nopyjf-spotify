@@ -11,7 +11,7 @@ import com.example.nopyjf.models.landing.LandingItemDisplay
 
 class LandingRecommendItemAdapter(
     private val items: List<LandingItemDisplay>
-) : ListAdapter<LandingItemDisplay, RecyclerView.ViewHolder>(LandingListDiffUtil()) {
+) : ListAdapter<LandingItemDisplay, RecyclerView.ViewHolder>(LandingRecommendItemDiffUtil()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         val itemView =
@@ -20,18 +20,18 @@ class LandingRecommendItemAdapter(
                 parent,
                 false
             )
-        return LandingRecommendViewHolder(itemView)
+        return LandingRecommendItemViewHolder(itemView)
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         when (holder) {
-            is LandingRecommendViewHolder -> holder.bind(items[position])
+            is LandingRecommendItemViewHolder -> holder.bind(items[position])
         }
     }
 
     override fun getItemCount() = items.size
 
-    private class LandingRecommendViewHolder(private val view: ItemLandingRecommendBinding) :
+    private class LandingRecommendItemViewHolder(private val view: ItemLandingRecommendBinding) :
         RecyclerView.ViewHolder(view.root) {
 
         fun bind(data: LandingItemDisplay) {
@@ -40,7 +40,7 @@ class LandingRecommendItemAdapter(
         }
     }
 
-    private class LandingListDiffUtil : DiffUtil.ItemCallback<LandingItemDisplay>() {
+    private class LandingRecommendItemDiffUtil : DiffUtil.ItemCallback<LandingItemDisplay>() {
         override fun areItemsTheSame(
             oldItem: LandingItemDisplay,
             newItem: LandingItemDisplay

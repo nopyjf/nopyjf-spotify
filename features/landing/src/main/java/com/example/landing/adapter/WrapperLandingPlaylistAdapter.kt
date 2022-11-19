@@ -11,10 +11,10 @@ import com.example.nopyjf.core.config.Config.ONE_ITEM
 import com.example.nopyjf.models.landing.LandingDisplay
 import com.example.nopyjf.models.landing.LandingItemDisplay
 
-class LandingPlaylistAdapter(
+class WrapperLandingPlaylistAdapter(
     private val data: LandingDisplay,
     private val adapter: LandingPlaylistItemAdapter
-) : ListAdapter<LandingItemDisplay, RecyclerView.ViewHolder>(LandingListDiffUtil()) {
+) : ListAdapter<LandingItemDisplay, RecyclerView.ViewHolder>(WrapperLandingPlaylistDiffUtil()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         val itemView =
@@ -23,18 +23,18 @@ class LandingPlaylistAdapter(
                 parent,
                 false
             )
-        return LandingPlaylistViewHolder(data, itemView)
+        return WrapperLandingPlaylistViewHolder(data, itemView)
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         when (holder) {
-            is LandingPlaylistViewHolder -> holder.bind(adapter)
+            is WrapperLandingPlaylistViewHolder -> holder.bind(adapter)
         }
     }
 
     override fun getItemCount() = ONE_ITEM
 
-    private class LandingPlaylistViewHolder(
+    private class WrapperLandingPlaylistViewHolder(
         private val data: LandingDisplay,
         private val view: SectionLandingPlaylistBinding
     ) :
@@ -50,7 +50,7 @@ class LandingPlaylistAdapter(
         }
     }
 
-    private class LandingListDiffUtil : DiffUtil.ItemCallback<LandingItemDisplay>() {
+    private class WrapperLandingPlaylistDiffUtil : DiffUtil.ItemCallback<LandingItemDisplay>() {
         override fun areItemsTheSame(
             oldItem: LandingItemDisplay,
             newItem: LandingItemDisplay

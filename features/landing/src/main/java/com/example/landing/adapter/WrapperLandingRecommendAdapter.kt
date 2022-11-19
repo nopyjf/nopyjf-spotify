@@ -11,9 +11,9 @@ import com.example.nopyjf.core.config.Config.ONE_ITEM
 import com.example.nopyjf.core.config.Config.SPAN_COUNT_TWO
 import com.example.nopyjf.models.landing.LandingDisplay
 
-class LandingRecommendAdapter(
+class WrapperLandingRecommendAdapter(
     private val adapter: LandingRecommendItemAdapter
-) : ListAdapter<LandingDisplay, RecyclerView.ViewHolder>(LandingListDiffUtil()) {
+) : ListAdapter<LandingDisplay, RecyclerView.ViewHolder>(WrapperLandingRecommendDiffUtil()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         val itemView =
@@ -22,18 +22,18 @@ class LandingRecommendAdapter(
                 parent,
                 false
             )
-        return LandingRecommendViewHolder(itemView)
+        return WrapperLandingRecommendViewHolder(itemView)
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         when (holder) {
-            is LandingRecommendViewHolder -> holder.bind(adapter)
+            is WrapperLandingRecommendViewHolder -> holder.bind(adapter)
         }
     }
 
     override fun getItemCount() = ONE_ITEM
 
-    private class LandingRecommendViewHolder(private val view: SectionLandingRecommendBinding) :
+    private class WrapperLandingRecommendViewHolder(private val view: SectionLandingRecommendBinding) :
         RecyclerView.ViewHolder(view.root) {
 
         fun bind(adapter: LandingRecommendItemAdapter) {
@@ -44,7 +44,7 @@ class LandingRecommendAdapter(
         }
     }
 
-    private class LandingListDiffUtil : DiffUtil.ItemCallback<LandingDisplay>() {
+    private class WrapperLandingRecommendDiffUtil : DiffUtil.ItemCallback<LandingDisplay>() {
         override fun areItemsTheSame(
             oldItem: LandingDisplay,
             newItem: LandingDisplay

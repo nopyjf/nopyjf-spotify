@@ -11,23 +11,23 @@ import com.example.nopyjf.models.landing.LandingItemDisplay
 
 class LandingPlaylistItemAdapter(
     private val items: List<LandingItemDisplay>
-) : ListAdapter<LandingItemDisplay, RecyclerView.ViewHolder>(LandingListDiffUtil()) {
+) : ListAdapter<LandingItemDisplay, RecyclerView.ViewHolder>(LandingPlaylistItemDiffUtil()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         val itemView =
             ItemLandingPlaylistBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-        return LandingPlaylistViewHolder(itemView)
+        return LandingPlaylistItemViewHolder(itemView)
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         when (holder) {
-            is LandingPlaylistViewHolder -> holder.bind(items[position])
+            is LandingPlaylistItemViewHolder -> holder.bind(items[position])
         }
     }
 
     override fun getItemCount() = items.size
 
-    private class LandingPlaylistViewHolder(private val view: ItemLandingPlaylistBinding) :
+    private class LandingPlaylistItemViewHolder(private val view: ItemLandingPlaylistBinding) :
         RecyclerView.ViewHolder(view.root) {
 
         fun bind(data: LandingItemDisplay) {
@@ -36,7 +36,7 @@ class LandingPlaylistItemAdapter(
         }
     }
 
-    private class LandingListDiffUtil : DiffUtil.ItemCallback<LandingItemDisplay>() {
+    private class LandingPlaylistItemDiffUtil : DiffUtil.ItemCallback<LandingItemDisplay>() {
         override fun areItemsTheSame(
             oldItem: LandingItemDisplay,
             newItem: LandingItemDisplay

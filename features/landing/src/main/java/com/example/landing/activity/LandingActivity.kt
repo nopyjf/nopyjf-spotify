@@ -7,9 +7,9 @@ import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.ConcatAdapter
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.landing.action.LandingViewAction
-import com.example.landing.adapter.LandingPlaylistAdapter
+import com.example.landing.adapter.WrapperLandingPlaylistAdapter
 import com.example.landing.adapter.LandingPlaylistItemAdapter
-import com.example.landing.adapter.LandingRecommendAdapter
+import com.example.landing.adapter.WrapperLandingRecommendAdapter
 import com.example.landing.adapter.LandingRecommendItemAdapter
 import dagger.hilt.android.AndroidEntryPoint
 import com.example.landing.databinding.ActivityLandingBinding
@@ -71,12 +71,12 @@ class LandingActivity : AppCompatActivity() {
             when (it.type) {
                 LandingType.RECOMMEND.name -> {
                     adapter.addAdapter(
-                        LandingRecommendAdapter(LandingRecommendItemAdapter(it.items))
+                        WrapperLandingRecommendAdapter(LandingRecommendItemAdapter(it.items))
                     )
                 }
                 else -> {
                     adapter.addAdapter(
-                        LandingPlaylistAdapter(it, LandingPlaylistItemAdapter(it.items))
+                        WrapperLandingPlaylistAdapter(it, LandingPlaylistItemAdapter(it.items))
                     )
                 }
             }
