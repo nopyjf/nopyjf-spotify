@@ -141,6 +141,10 @@ object AppDependencies {
         MODEL,
         BASELINE,
     )
+
+    val modelProjectDependencies = listOf(
+        BASELINE,
+    )
 }
 
 fun DependencyHandler.kapt(list: List<String>) {

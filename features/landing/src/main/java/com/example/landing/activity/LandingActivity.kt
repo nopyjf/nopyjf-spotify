@@ -47,19 +47,14 @@ class LandingActivity : AppCompatActivity() {
         landingViewModel.uiState.collect {
             when (it) {
                 is LandingViewAction.Loading -> {
-//                    updateLandingList(listOf())
+                    // Show loading
                 }
-                LandingViewAction.ApiError -> {
-//                    updateLandingList(listOf())
+                is LandingViewAction.Success -> {
+                    updateLandingList(it.display)
                 }
-                LandingViewAction.Success -> {
-                    updateLandingList(landingViewModel.landing.value)
-                }
-                LandingViewAction.ServerError -> {
-//                    updateLandingList(listOf())
-                }
-                LandingViewAction.MysteryError -> {
-//                    updateLandingList(listOf())
+                is LandingViewAction.ShowErrorDialog -> {
+                    // Show dialog in here
+                    it.errorDisplay
                 }
             }
         }

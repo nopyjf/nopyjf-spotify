@@ -39,4 +39,5 @@ android {
 
 dependencies {
     implementation(AppDependencies.coreDependencies)
+    implementationProject(AppDependencies.modelProjectDependencies)
 }

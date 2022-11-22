@@ -1,32 +1,10 @@
 package com.example.landing.action
 
-import com.example.nopyjf.models.error.ErrorException
-import com.example.nopyjf.models.response.StatusCode
-import kotlinx.coroutines.flow.MutableStateFlow
+import com.example.nopyjf.models.error.ErrorDisplay
+import com.example.nopyjf.models.landing.LandingListDisplay
 
 sealed class LandingViewAction {
-    object Success : LandingViewAction()
+    class Success(val display: LandingListDisplay) : LandingViewAction()
     object Loading : LandingViewAction()
-    object ApiError : LandingViewAction()
-    object ServerError : LandingViewAction()
-    object MysteryError : LandingViewAction()
-
-    companion object {
-        fun getLandingViewAction(
-            state: MutableStateFlow<LandingViewAction>,
-            e: ErrorException,
-        ) {
-            when (e.code) {
-                StatusCode.API_ERROR -> {
-                    state.value = ApiError
-                }
-                StatusCode.SERVER_ERROR -> {
-                    state.value = ServerError
-                }
-                else -> {
-                    state.value = MysteryError
-                }
-            }
-        }
-    }
+    class ShowErrorDialog(val errorDisplay: ErrorDisplay) : LandingViewAction()
 }

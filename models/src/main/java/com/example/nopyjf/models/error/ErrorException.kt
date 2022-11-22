@@ -2,22 +2,18 @@ package com.example.nopyjf.models.error
 
 import com.example.nopyjf.models.response.StatusCode
 
-open class ErrorException(
-    override val message: String = "",
-    val code: String = "",
-) : Exception(message)
+sealed class ErrorException(
+    override val message: String? = null,
+    val code: String? = null,
+    val throwable: Throwable? = null,
+) : Exception(message) {
 
-class ApiErrorException(
-    code: String = StatusCode.API_ERROR,
-    message: String = "",
-) : ErrorException(code = code, message = message)
+    class ApiErrorException(message: String) :
+        ErrorException(code = StatusCode.API_ERROR, message = message)
 
-class ServerErrorException(
-    code: String = StatusCode.SERVER_ERROR,
-    message: String = "",
-) : ErrorException(code = code, message = message)
+    class ServerErrorException(message: String) :
+        ErrorException(code = StatusCode.SERVER_ERROR, message = message)
 
-class MysteryErrorException(
-    code: String = StatusCode.MYSTERY_ERROR,
-    message: String = "",
-) : ErrorException(code = code, message = message)
+    class MysteryErrorException(message: String? = null, throwable: Throwable? = null) :
+        ErrorException(code = StatusCode.MYSTERY_ERROR, message = message, throwable = throwable)
+}

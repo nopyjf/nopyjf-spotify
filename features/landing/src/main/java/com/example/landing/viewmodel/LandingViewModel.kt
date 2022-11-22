@@ -1,12 +1,14 @@
 package com.example.landing.viewmodel
 
+import android.content.Context
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.landing.action.LandingViewAction
-import com.example.nopyjf.models.error.ErrorException
+import com.example.nopyjf.models.error.transformError
 import com.example.nopyjf.models.landing.LandingListDisplay
 import com.example.nopyjf.services.landing.controller.LandingController
 import dagger.hilt.android.lifecycle.HiltViewModel
+import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -19,22 +21,29 @@ class LandingViewModel @Inject constructor(
 ) : ViewModel() {
 
     private val _uiState = MutableStateFlow<LandingViewAction>(LandingViewAction.Loading)
-    private val _landing = MutableStateFlow<LandingListDisplay?>(null)
 
     var uiState: StateFlow<LandingViewAction> = _uiState
-    var landing: StateFlow<LandingListDisplay?> = _landing
 
     fun getLanding() {
         _uiState.value = LandingViewAction.Loading
+        // Do this when not use kotlin flow
+//        viewModelScope.launch(Dispatchers.IO) {
+//            try {
+//                _landing.value = controller.getLanding()
+//                _uiState.value = LandingViewAction.Success
+//            } catch (e: Throwable) {
+//                _uiState.value = LandingViewAction.ShowErrorDialog(e.transformError())
+//            }
+//        }
         viewModelScope.launch(Dispatchers.IO) {
-            try {
-                _landing.value = controller.getLanding()
-                _uiState.value = LandingViewAction.Success
-            } catch (e: ErrorException) {
-                LandingViewAction.getLandingViewAction(_uiState, e)
-            } catch (e: Exception) {
-                _uiState.value = LandingViewAction.MysteryError
-            }
+            controller.getLanding(
+                {
+                    _uiState.value = LandingViewAction.Success(it)
+                },
+                {
+                    _uiState.value = LandingViewAction.ShowErrorDialog(it.transformError())
+                }
+            )
         }
     }
 }

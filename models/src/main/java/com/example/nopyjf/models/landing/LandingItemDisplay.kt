@@ -1,6 +1,9 @@
 package com.example.nopyjf.models.landing
 
+import android.content.Context
 import android.os.Parcelable
+import dagger.hilt.android.qualifiers.ActivityContext
+import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.parcelize.Parcelize
 
 @Parcelize
@@ -28,7 +31,7 @@ enum class LandingType {
     PLAYLIST
 }
 
-fun LandingListModel?.transformModel(): LandingListDisplay {
+fun LandingListModel?.transformModel(context: Context): LandingListDisplay {
     return LandingListDisplay(
         landingList = this?.landingList?.map { landing ->
             LandingDisplay(
@@ -36,7 +39,7 @@ fun LandingListModel?.transformModel(): LandingListDisplay {
                 type = landing.type.orEmpty(),
                 items = landing.items?.map { item ->
                     LandingItemDisplay(
-                        title = item.title.orEmpty(),
+                        title = context.getString(com.example.baseline.R.string.title),
                         image = item.image.orEmpty(),
                         type = item.type.orEmpty(),
                         artist = item.artist.orEmpty(),
